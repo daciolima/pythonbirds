@@ -18,6 +18,13 @@ if __name__ == '__main__':
     print(dacio.nome)
     print(dacio.idade)
     print(dacio.filhos)
+    isaac.sobrenome = 'Lima'
     for filho in dacio.filhos:
-        print(f'Nome: {filho.nome}, idade: {filho.idade}')
+        print(f'Nome: {filho.nome} {filho.sobrenome}, idade: {filho.idade}')
+
+    # Exibindo atributo de instância atraves do método __dict__
+    print(dacio.__dict__)
+    print(isaac.__dict__)
+    del isaac.sobrenome
+    print(isaac.__dict__)
 
