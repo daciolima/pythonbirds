@@ -1,4 +1,9 @@
 class Pessoa:
+
+    # Definição de atribudo de classe, geralmente é criado quando se tem um atributo que
+    # que terá um valor comum para todos os objetos vindos da classe
+    olhos = 2
+
     # Definição de atributo de instância ou de objeto são realizados no construtor do Objeto
     def __init__(self, *filhos, nome=None, idade=40):
         self.idade = idade
@@ -26,5 +31,11 @@ if __name__ == '__main__':
     print(dacio.__dict__)
     print(isaac.__dict__)
     del isaac.sobrenome
+    dacio.olhos = 1
+    print(dacio.__dict__)
     print(isaac.__dict__)
+    Pessoa.olhos = 3
+    print(f'Os objetos da classe Pessoa tem {Pessoa.olhos} olhos.')
+    print(f'O Objeto dacio tem {dacio.olhos} olhos.')
+    print(id(Pessoa.olhos), id(dacio.olhos), id(isaac.olhos))
 
