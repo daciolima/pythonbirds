@@ -13,10 +13,22 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+    @staticmethod
+    def metodo_estatico():
+        return 'Olá, eu sou um método estático'
+
+    # Métodos para retornar informações sobre a class
+    @classmethod
+    def nome_atributos_de_classe(cls):
+        return f'O nome da classe é {cls} e contém um atributo chamado {cls.olhos}'
+
 
 if __name__ == '__main__':
     isaac = Pessoa(nome='Isaac', idade=2)
     dacio = Pessoa(isaac, nome='Dácio Lima', idade=40)
+    # Para executar metodo de classe atrelado ao objeto deve-se colocar dessa forma:
+    print(dacio.cumprimentar())
+    # Caso contrário deve-se passa o objeto como parâmetro.
     print(Pessoa.cumprimentar(dacio))
     print(id(dacio))
     print(dacio.cumprimentar())
@@ -38,4 +50,9 @@ if __name__ == '__main__':
     print(f'Os objetos da classe Pessoa tem {Pessoa.olhos} olhos.')
     print(f'O Objeto dacio tem {dacio.olhos} olhos.')
     print(id(Pessoa.olhos), id(dacio.olhos), id(isaac.olhos))
+
+    # Método estático pode ser usado pela própria classe como também pelo objeto
+    print(Pessoa.metodo_estatico(), dacio.metodo_estatico())
+    # Método de classe pode ser usado pela própria classe como também pelo objeto
+    print(Pessoa.nome_atributos_de_classe(), '\n' + dacio.nome_atributos_de_classe())
 
